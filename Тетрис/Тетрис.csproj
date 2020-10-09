@@ -58,6 +58,7 @@
     <Compile Include="Model\Figura_3.cs" />
     <Compile Include="Model\Figura_4.cs" />
     <Compile Include="Model\Figura_5.cs" />
+    <Compile Include="Model\Figura_6.cs" />
     <Compile Include="Model\MainFigura.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
