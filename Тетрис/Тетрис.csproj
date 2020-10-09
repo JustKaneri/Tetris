@@ -53,6 +53,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Figura_0.cs" />
+    <Compile Include="Model\Figura_1.cs" />
     <Compile Include="Model\MainFigura.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
