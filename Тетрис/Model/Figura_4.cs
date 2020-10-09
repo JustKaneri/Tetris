@@ -10,8 +10,6 @@ namespace Тетрис.Model
     {
 
         //См класс Figura_0.
-
-
         public Figura_4()
         {
             MaxPosition = 4;
