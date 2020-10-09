@@ -8,6 +8,7 @@ namespace Тетрис.Model
 {
     class MainFigura
     {
+        public static Random rnd = new Random();
         public int X { get; set; }
         public int Y { get; set; }
         public int N { get; set; }
