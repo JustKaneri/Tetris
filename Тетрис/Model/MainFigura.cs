@@ -9,25 +9,25 @@ namespace Тетрис.Model
     class MainFigura
     {
         public static Random rnd = new Random();
-        public int X { get; set; }
-        public int Y { get; set; }
+        public int tj { get; set; }
+        public int ti { get; set; }
         public int N { get; set; }
         public int M { get; set; }
         public int CurrentPosition { get; set; }
         public int MaxPosition { get; set; }
 
         public int[][,] ArrayStatus;
-        public int[,] CurrentFigur;
+        public int[,] CurrentFigurs;
 
         /// <summary>
         /// Выбор состояния фигуры.
         /// </summary>
         public void SelectStatus()
         {
-            CurrentFigur = ArrayStatus[CurrentPosition];
+            CurrentFigurs = ArrayStatus[CurrentPosition];
 
-            N = ArrayStatus.GetLength(0);
-            M = ArrayStatus.GetLength(1);
+            N = CurrentFigurs.GetLength(0);
+            M = CurrentFigurs.GetLength(1);
         }
 
         /// <summary>

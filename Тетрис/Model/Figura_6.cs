@@ -13,7 +13,11 @@ namespace Тетрис.Model
             MaxPosition = 2;
             ArrayStatus = new int[2][,]
             {
-               new int[,] { {7}, {7}, {7}, {7} },
+               new int[,] { {7}, 
+                            {7},
+                            {7}, 
+                            {7}},
+
                new int[,] { {7,7,7,7} }
             };
 
