@@ -12,7 +12,7 @@ namespace Тетрис.Controler
     class Tetris
     {
         private static Random rnd = new Random();
-        private const int CountFigur = 7;
+        private const int CountFigur = 8;
 
         public int[,] GameMap;
         public int RowCount,
