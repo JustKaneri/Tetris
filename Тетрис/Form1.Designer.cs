@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lPause = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lPause
             // 
             this.lPause.AutoSize = true;
-            this.lPause.Location = new System.Drawing.Point(466, 126);
+            this.lPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lPause.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lPause.ForeColor = System.Drawing.Color.Black;
+            this.lPause.Location = new System.Drawing.Point(344, 172);
             this.lPause.Name = "lPause";
-            this.lPause.Size = new System.Drawing.Size(0, 19);
+            this.lPause.Size = new System.Drawing.Size(126, 45);
             this.lPause.TabIndex = 0;
+            this.lPause.Text = "Пауза";
+            this.lPause.Visible = false;
             // 
             // Form1
             // 
@@ -66,7 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Label lPause;
-        public System.Windows.Forms.Timer timer1;
     }
 }
 

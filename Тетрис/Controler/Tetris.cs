@@ -45,7 +45,8 @@ namespace Тетрис.Controler
                                Brushes.CornflowerBlue,
                                Brushes.Brown,
                                Brushes.BlueViolet,
-                               Brushes.Coral };
+                               Brushes.Coral,
+                               Brushes.Chocolate};
         Bitmap[] ArrayBitmap;
 
         public Tetris(Graphics pov, int Row, int Col)
@@ -105,6 +106,11 @@ namespace Тетрис.Controler
                 case 6:
                     {
                         Nextfigura = new Figura_6(); break;
+                    }
+                case 7:
+                    {
+                        Nextfigura = new Figura_7();
+                        break;
                     }
             }
 
@@ -189,6 +195,11 @@ namespace Тетрис.Controler
                     case 6:
                         {
                             Nextfigura = new Figura_6();
+                            break;
+                        }
+                    case 7:
+                        {
+                            Nextfigura = new Figura_7();
                             break;
                         }
 
@@ -302,8 +313,6 @@ namespace Тетрис.Controler
 
         }
 
-        
-
         /// <summary>
         /// Показ следующей фигуры.
         /// </summary>
@@ -316,10 +325,10 @@ namespace Тетрис.Controler
 
             g.FillRectangle(Brushes.White, x1, y1, 6 * CellWidth, 6 * CellWidth);
 
-            int i, j, otstx = x1 + (6 - figura.M) * CellWidth / 2, otsty = Dy + (6 - figura.N) * CellWidth / 2;
+            int otstx = x1 + (6 - figura.M) * CellWidth / 2, otsty = Dy + (6 - figura.N) * CellWidth / 2;
             //перебор ячеек массива, хранящего информацию о фигуре
-            for (i = 0; i < figura.N; i++)
-                for (j = 0; j < figura.M; j++)
+            for (int i = 0; i < figura.N; i++)
+                for (int j = 0; j < figura.M; j++)
                     if (figura.CurrentFigurs[i, j] > 0)//если ячейка не пустая, то
                         g.DrawImage(ArrayBitmap[figura.CurrentFigurs[i, j]], otstx + j * CellWidth, otsty + i * CellWidth, CellWidth, CellWidth);
         }
