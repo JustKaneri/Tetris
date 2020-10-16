@@ -320,17 +320,18 @@ namespace Тетрис.Controler
         public void PreviewFigura(MainFigura figura)
         {
 
-            int x1 = Dx + ColCount * CellWidth + 10,
-                y1 = Dy;
+            int x1 = Dx + ColCount * CellWidth + 10;
+            int y1 = Dy;
 
             g.FillRectangle(Brushes.White, x1, y1, 6 * CellWidth, 6 * CellWidth);
 
-            int otstx = x1 + (6 - figura.M) * CellWidth / 2, otsty = Dy + (6 - figura.N) * CellWidth / 2;
+            int otstX = x1 + (6 - figura.M) * CellWidth / 2;
+            int otstY = Dy + (6 - figura.N) * CellWidth / 2;
             //перебор ячеек массива, хранящего информацию о фигуре
             for (int i = 0; i < figura.N; i++)
                 for (int j = 0; j < figura.M; j++)
                     if (figura.CurrentFigurs[i, j] > 0)//если ячейка не пустая, то
-                        g.DrawImage(ArrayBitmap[figura.CurrentFigurs[i, j]], otstx + j * CellWidth, otsty + i * CellWidth, CellWidth, CellWidth);
+                        g.DrawImage(ArrayBitmap[figura.CurrentFigurs[i, j]], otstX + j * CellWidth, otstY + i * CellWidth, CellWidth, CellWidth);
         }
 
         /// <summary>
@@ -348,17 +349,15 @@ namespace Тетрис.Controler
                     if (currenFigura == null)
                         nb = GameMap[i, j];
                     else
-                        if (i >= currenFigura.ti && i < currenFigura.ti + currenFigura.N && j >= currenFigura.tj && j < currenFigura.tj + currenFigura.M)
+                        if (i >= currenFigura.ti && i < currenFigura.ti + currenFigura.N && 
+                           j >= currenFigura.tj && j < currenFigura.tj + currenFigura.M)
                         //если клетка фигуры не пустая, то
                             if (currenFigura.CurrentFigurs[i - currenFigura.ti, j - currenFigura.tj] > 0)
-                             nb = currenFigura.CurrentFigurs[i - currenFigura.ti, j - currenFigura.tj];
-
+                                nb = currenFigura.CurrentFigurs[i - currenFigura.ti, j - currenFigura.tj];
+                            else
+                              nb = GameMap[i, j];
                         else
                             nb = GameMap[i, j];
-                    else
-                        //иначе, если выводимая клетка не попадает на фигуру, то
-                        //цвет квадрата также определяем по клетке игрового поля
-                        nb = GameMap[i, j];
 
                     g.DrawImage(ArrayBitmap[nb], j * CellWidth + Dx, i * CellWidth + Dy);
                 }

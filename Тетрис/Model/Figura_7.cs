@@ -10,14 +10,24 @@ namespace Тетрис.Model
     {
         public Figura_7()
         {
-            MaxPosition = 1;
-            ArrayStatus = new int[1][,]
+            MaxPosition = 3;
+            ArrayStatus = new int[3][,]
             {
                 new int[,] 
-                {
-                    {8,0,8},
+                { 
                     {0,8,0},
                     {8,0,8}
+                },
+                new int[,]
+                {
+                    {8,0},
+                    {0,8},
+                    {8,0}
+                },
+                new int[,]
+                {
+                    {8,0,8},
+                    {0,8,0}
                 }
             };
 
