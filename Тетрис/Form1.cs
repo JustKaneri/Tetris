@@ -1,24 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Тетрис.Controler;
-//using Тетрис.Model;
 
 namespace Тетрис
 {
-
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
         }
-
 
         Tetris tetris;
 
@@ -40,9 +32,6 @@ namespace Тетрис
             this.Controls.Add(tetris.lLevel);
             this.Controls.Add(tetris.lLines);
             this.Controls.Add(tetris.lScope);
-
-            
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -53,7 +42,7 @@ namespace Тетрис
                     if(!tetris.RestoreInterval)
                     {
                         tetris.BaceInterval = tetris.timer.Interval;
-                        tetris.timer.Interval = 1;
+                        tetris.timer.Interval = 10;
                         tetris.RestoreInterval = true;
                     }
                     break;
@@ -67,6 +56,7 @@ namespace Тетрис
             switch(e.KeyCode)
             {
                 case Keys.Left:
+
                     f = true;
 
                     if (tetris.currenFigura == null || tetris.Pause)
@@ -144,7 +134,8 @@ namespace Тетрис
                                 Cj, 
                                 Li = 0, 
                                 Lj = 0,
-                                Pi, Pj,
+                                Pi,
+                                Pj,
                                 K=0;
 
                             Ci = tetris.currenFigura.ti + tetris.currenFigura.N / 2;

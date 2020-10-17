@@ -9,14 +9,38 @@ namespace Тетрис.Model
     class MainFigura
     {
         public static Random rnd = new Random();
+        /// <summary>
+        /// Координата верхнего левого угла по Y.
+        /// </summary>
         public int tj { get; set; }
+        /// <summary>
+        /// Координата верхнего левого угла по X.
+        /// </summary>
         public int ti { get; set; }
+        /// <summary>
+        /// Кол-во строк массива фигуры.
+        /// </summary>
         public int N { get; set; }
+        /// <summary>
+        /// Кол-во столбцов массива фигуры.
+        /// </summary>
         public int M { get; set; }
+        /// <summary>
+        /// Выбраная позиция.
+        /// </summary>
         public int CurrentPosition { get; set; }
+        /// <summary>
+        /// Максимальное кол-во позиций.
+        /// </summary>
         public int MaxPosition { get; set; }
 
+        /// <summary>
+        /// Массив состояний фигуры.
+        /// </summary>
         public int[][,] ArrayStatus;
+        /// <summary>
+        /// Выбраное состояние фигуры.
+        /// </summary>
         public int[,] CurrentFigurs;
 
         /// <summary>

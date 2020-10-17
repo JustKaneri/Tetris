@@ -12,32 +12,78 @@ namespace Тетрис.Controler
     class Tetris
     {
         private static Random rnd = new Random();
+        /// <summary>
+        /// Максимальное кол-во фигур.
+        /// </summary>
         private const int CountFigur = 8;
 
+        /// <summary>
+        /// Игровая карта.
+        /// </summary>
         public int[,] GameMap;
+
+        /// <summary>
+        /// Кол-во строк и столбцов.
+        /// </summary>
         public int RowCount,
                    ColCount;
-        public int CellWidth = 25;//ширина одной ячейки игрового поля
+
+        /// <summary>
+        /// Размер ячейки
+        /// </summary>
+        public int CellWidth = 25;
+
+        /// <summary>
+        /// Отступы.
+        /// </summary>
         public int Dx = 0,
-                   Dy = 0;//отступы.
-        public int BaceInterval;//поле для сохранения старого значения интервала таймера при сбросе фигуры
+                   Dy = 0;
+
+        /// <summary>
+        /// Старый интервал таймера.
+        /// </summary>
+        public int BaceInterval;
         public int Level = 1;
+
+        /// <summary>
+        /// Рекорд.
+        /// </summary>
         public int Scope = 0;
-        public int CountDestroyLine = 0;//количество уничтоженных линий
-        public int NextLevel;//количество баллов для перехода на следующий уровень
+
+        /// <summary>
+        /// Кол-во уничтоженных линий.
+        /// </summary>
+        public int CountDestroyLine = 0;
+        
+        /// <summary>
+        /// Кол-во балов для следующего уровня.
+        /// </summary>
+        public int NextLevel;
         
         //работы таймера после сброса фигуры
         public bool RestoreInterval = false;
         public bool Pause = false;
         public bool GameOver = false;
         public Timer timer;
+
+        /// <summary>
+        /// Выбранная фигура.
+        /// </summary>
         public MainFigura currenFigura = null;
+
+        /// <summary>
+        /// Следующая фигура.
+        /// </summary>
         public MainFigura Nextfigura = null;
 
         public Label lLevel,
                      lLines,
                      lScope;
         Graphics g;
+
+        /// <summary>
+        /// Массив кистей.
+        /// </summary>
         Brush[] ArrayBrush = { Brushes.White,
                                Brushes.Red,
                                Brushes.Blue,
@@ -47,6 +93,10 @@ namespace Тетрис.Controler
                                Brushes.BlueViolet,
                                Brushes.Coral,
                                Brushes.Chocolate};
+
+        /// <summary>
+        /// Массив цветных кубиков.
+        /// </summary>
         Bitmap[] ArrayBitmap;
 
         public Tetris(Graphics pov, int Row, int Col)
@@ -57,13 +107,13 @@ namespace Тетрис.Controler
 
             GameMap = new int[RowCount, ColCount];
 
-            int i, j;
-            for (i = 0; i < RowCount; i++)
-                for (j = 0; j < ColCount; j++) GameMap[i, j] = 0;
+            for (int i = 0; i < RowCount; i++)
+                for (int j = 0; j < ColCount; j++)
+                    GameMap[i, j] = 0;
 
             ArrayBitmap = new Bitmap[ArrayBrush.Length];
 
-            for (i = 0; i < ArrayBitmap.Length; i++)
+            for (int i = 0; i < ArrayBitmap.Length; i++)
             {
                 ArrayBitmap[i] = new Bitmap(CellWidth, CellWidth);
 
@@ -156,10 +206,8 @@ namespace Тетрис.Controler
         {
             if (currenFigura == null)
             {
-
-                //в текущей сделать следующую фигуру
                 currenFigura = Nextfigura;
-                //случайно выбрать новую следующую фигуру
+
                 switch (rnd.Next(CountFigur))
                 {
                     case 0:
@@ -214,7 +262,9 @@ namespace Тетрис.Controler
             {
 
                 bool f = true;
+
                 int i, j;
+
                 if (currenFigura.ti + currenFigura.N == RowCount)
                     f = false;
                 else

@@ -37,7 +37,7 @@
             this.lPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lPause.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lPause.ForeColor = System.Drawing.Color.Black;
-            this.lPause.Location = new System.Drawing.Point(344, 172);
+            this.lPause.Location = new System.Drawing.Point(268, 227);
             this.lPause.Name = "lPause";
             this.lPause.Size = new System.Drawing.Size(126, 45);
             this.lPause.TabIndex = 0;
