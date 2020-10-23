@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 using Тетрис.Controler;
+using System.IO;
 
 namespace Тетрис
 {
@@ -13,6 +15,8 @@ namespace Тетрис
         }
 
         Tetris tetris;
+        SoundPlayer sp = new SoundPlayer();
+        
 
         /// <summary>
         /// Загрузка формы.
@@ -32,6 +36,9 @@ namespace Тетрис
             this.Controls.Add(tetris.lLevel);
             this.Controls.Add(tetris.lLines);
             this.Controls.Add(tetris.lScope);
+
+            sp.Stream = Properties.Resources.Music;
+            sp.Play();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -176,12 +183,15 @@ namespace Тетрис
 
 
                 case Keys.Space:
-
                     tetris.Show();
                     tetris.PreviewFigura(tetris.Nextfigura);
                     tetris.timer.Enabled = !tetris.timer.Enabled;
                     tetris.Pause = !tetris.timer.Enabled;
                     lPause.Visible = !tetris.timer.Enabled;
+                    if (lPause.Visible == true)
+                        sp.Stop();
+                    else
+                        sp.Play();
                     break;
 
 

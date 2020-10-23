@@ -84,7 +84,7 @@ namespace Тетрис.Controler
         /// <summary>
         /// Массив кистей.
         /// </summary>
-        Brush[] ArrayBrush = { Brushes.White,
+        Brush[] ArrayBrush = { Brushes.LightBlue,
                                Brushes.Red,
                                Brushes.Blue,
                                Brushes.Green,
@@ -369,18 +369,17 @@ namespace Тетрис.Controler
         /// <param name="f"></param>
         public void PreviewFigura(MainFigura figura)
         {
-
             int x1 = Dx + ColCount * CellWidth + 10;
             int y1 = Dy;
 
             g.FillRectangle(Brushes.White, x1, y1, 6 * CellWidth, 6 * CellWidth);
 
             int otstX = x1 + (6 - figura.M) * CellWidth / 2;
-            int otstY = Dy + (6 - figura.N) * CellWidth / 2;
-            //перебор ячеек массива, хранящего информацию о фигуре
+            int otstY = y1 + (6 - figura.N) * CellWidth / 2;
+
             for (int i = 0; i < figura.N; i++)
                 for (int j = 0; j < figura.M; j++)
-                    if (figura.CurrentFigurs[i, j] > 0)//если ячейка не пустая, то
+                    if (figura.CurrentFigurs[i, j] > 0)
                         g.DrawImage(ArrayBitmap[figura.CurrentFigurs[i, j]], otstX + j * CellWidth, otstY + i * CellWidth, CellWidth, CellWidth);
         }
 
@@ -389,28 +388,33 @@ namespace Тетрис.Controler
         /// </summary>
         public void Show()
         {
-            //перерисовываем массив
-            int i, j;
-            int nb;
+            //Номер выбраного блока.
+            int NumberBlock;
 
-            for (i = 0; i < RowCount; i++)
-                for (j = 0; j < ColCount; j++)
+            for (int i = 0; i < RowCount; i++)
+            {
+                for (int j = 0; j < ColCount; j++)
                 {
                     if (currenFigura == null)
-                        nb = GameMap[i, j];
+                        NumberBlock = GameMap[i, j];
                     else
-                        if (i >= currenFigura.ti && i < currenFigura.ti + currenFigura.N && 
-                           j >= currenFigura.tj && j < currenFigura.tj + currenFigura.M)
-                        //если клетка фигуры не пустая, то
+                    {
+                        if (i >= currenFigura.ti && i < currenFigura.ti + currenFigura.N &&
+                            j >= currenFigura.tj && j < currenFigura.tj + currenFigura.M)
+                        {
                             if (currenFigura.CurrentFigurs[i - currenFigura.ti, j - currenFigura.tj] > 0)
-                                nb = currenFigura.CurrentFigurs[i - currenFigura.ti, j - currenFigura.tj];
+                                NumberBlock = currenFigura.CurrentFigurs[i - currenFigura.ti, j - currenFigura.tj];
                             else
-                              nb = GameMap[i, j];
+                                NumberBlock = GameMap[i, j];
+                        }
                         else
-                            nb = GameMap[i, j];
+                            NumberBlock = GameMap[i, j];
+                    }
 
-                    g.DrawImage(ArrayBitmap[nb], j * CellWidth + Dx, i * CellWidth + Dy);
+
+                    g.DrawImage(ArrayBitmap[NumberBlock], j * CellWidth + Dx, i * CellWidth + Dy);
                 }
+            }
         }
 
         /// <summary>

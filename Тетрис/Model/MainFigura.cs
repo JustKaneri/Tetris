@@ -10,11 +10,11 @@ namespace Тетрис.Model
     {
         public static Random rnd = new Random();
         /// <summary>
-        /// Координата верхнего левого угла по Y.
+        /// Координата верхнего левого угла по X.
         /// </summary>
         public int tj { get; set; }
         /// <summary>
-        /// Координата верхнего левого угла по X.
+        /// Координата верхнего левого угла по Y.
         /// </summary>
         public int ti { get; set; }
         /// <summary>
